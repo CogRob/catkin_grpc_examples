@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>greeter</name>
+  <version>0.0.0</version>
+  <description>An example of using catkinized gRPC package.</description>
+  <maintainer email="shengye@ucsd.edu">Shengye Wang</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- ADD THE NEXT LINES TO USE GRPC -->
+  <build_depend>grpc</build_depend>
+  <run_depend>grpc</run_depend>
+</package>

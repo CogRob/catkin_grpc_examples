@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package catkin_grpc.greeter;
+
+import "greeter/proto/subdir/hello_msgs.proto";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
