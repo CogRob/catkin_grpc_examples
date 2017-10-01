@@ -48,6 +48,7 @@ void RunServer() {
 }
 
 int main(int argc, char** argv) {
+  grpc_init();
   RunServer();
 
   return 0;
