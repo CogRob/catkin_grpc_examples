@@ -5,7 +5,7 @@ import time
 
 import grpc
 
-import greeter.proto.hello_pb2 as hello_pb2
+import greeter.proto.hello_pb2_grpc as hello_pb2
 import greeter.proto.subdir.hello_msgs_pb2 as hello_msgs_pb2
 # -----^^^^^^^ -- Include package name if SRC_BASE is not in generate_proto
 
