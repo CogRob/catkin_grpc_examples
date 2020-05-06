@@ -5,14 +5,14 @@ import time
 
 import grpc
 
-import greeter.proto.hello_pb2 as hello_pb2
+import greeter.proto.hello_pb2_grpc as hello_pb2_grpc
 import greeter.proto.subdir.hello_msgs_pb2 as hello_msgs_pb2
 # -----^^^^^^^ -- Include package name if SRC_BASE is not in generate_proto
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
-class Greeter(hello_pb2.GreeterServicer):
+class Greeter(hello_pb2_grpc.GreeterServicer):
 
   def SayHello(self, request, context):
     return hello_msgs_pb2.HelloReply(message='Hello, %s!' % request.name)
@@ -20,7 +20,7 @@ class Greeter(hello_pb2.GreeterServicer):
 
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-  hello_pb2.add_GreeterServicer_to_server(Greeter(), server)
+  hello_pb2_grpc.add_GreeterServicer_to_server(Greeter(), server)
   server.add_insecure_port('[::]:50051')
   print 'I am listening on port 50051.'
   server.start()

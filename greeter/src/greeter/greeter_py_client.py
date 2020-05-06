@@ -4,14 +4,14 @@ from __future__ import print_function
 
 import grpc
 
-import greeter.proto.hello_pb2 as hello_pb2
+import greeter.proto.hello_pb2_grpc as hello_pb2_grpc
 import greeter.proto.subdir.hello_msgs_pb2 as hello_msgs_pb2
 # -----^^^^^^^ -- Include package name if SRC_BASE is not in generate_proto
 
 
 def run():
   channel = grpc.insecure_channel('localhost:50051')
-  stub = hello_pb2.GreeterStub(channel)
+  stub = hello_pb2_grpc.GreeterStub(channel)
   response = stub.SayHello(hello_msgs_pb2.HelloRequest(name='you'))
   print("Greeter client received: " + response.message)
 
